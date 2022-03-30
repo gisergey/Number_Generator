@@ -22,19 +22,17 @@ namespace Number_Generator
         private void MainForm_Load(object sender, EventArgs e)
         {
             Numbers.Random();
-        
             S();
         }  
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            Number n = Numbers.Real_Numbers.Last();
-            while (Numbers.Real_Numbers.Contains(n))
+            Number n = new Number(Numbers.Real_Numbers.Last().Num, Numbers.Real_Numbers.Last().letters);
+            
+            n++;
+            while (Numbers.IsWeCreateAlreadythisNumber(n))
             {
-               
                n++;
-                
-                
             }
             Numbers.Real_Numbers.Add(new Number(n.Num, n.letters));
             S();
@@ -42,8 +40,9 @@ namespace Number_Generator
 
         private void PreviousButton_Click(object sender, EventArgs e)
         {
-            Number n = Numbers.Real_Numbers.Last();
-            while (Numbers.Real_Numbers.Contains(n))
+            Number n = new Number(Numbers.Real_Numbers.Last().Num, Numbers.Real_Numbers.Last().letters);
+            n--;
+            while (Numbers.IsWeCreateAlreadythisNumber(n))
             {
             
                n--;

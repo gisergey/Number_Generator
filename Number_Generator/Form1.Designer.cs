@@ -155,7 +155,7 @@ namespace Number_Generator
             this.Controls.Add(this.NextButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Генератор номеров";
+            this.Text = "Генератор номеров Австралии";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

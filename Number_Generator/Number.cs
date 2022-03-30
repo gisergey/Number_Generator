@@ -8,10 +8,25 @@ namespace Number_Generator
 {
     class Number
     {
+        public Number()
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                letters[i] = 'A';
+            }
+        }
         public Number(int[] num, char[] letters)
         {
-            this.letters = letters;
-            this.Num = num;
+           for(int i = 0; i < 4;i++)
+           {
+               this.letters[i] = letters[i];
+           }
+           for(int i = 0; i < 2; i++)
+           {
+                Num[i] = num[i];
+           }
+        
+        
         }
         public char[] letters = new char[4];
         public int[] Num=new int[2];
@@ -46,7 +61,7 @@ namespace Number_Generator
             }
             else   if (j < 4)
             {
-                num.letters[j] = (char)((int)num.letters[j] + 1);
+                num.letters[j] = (char)(num.letters[j] + 1);
             }
 
             for(int h = 0; h < j; h++)
@@ -82,19 +97,36 @@ namespace Number_Generator
             }
             else if (j < 4)
             {
-                num.letters[j] = (char)((int)num.letters[j] - 1);
+                num.letters[j] = (char)(num.letters[j] - 1);
             }
 
             for (int h = 0; h < j; h++)
             {
                 num.letters[h] = 'Z';
             }
-
-
             return num;
-
         }
-
+        public override bool Equals(object obj)
+        {
+            if(obj is Number)
+            {
+                Number num = obj as Number;
+                for(int i = 0; i < 2; i++)
+                {
+                    if (Num[i] != num.Num[i]) return false;
+                }
+                for(int i = 0; i < 4; i++)
+                {
+                    if (letters[i] != num.letters[i])  return false; 
+                }
+                return true;
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
     }
 }

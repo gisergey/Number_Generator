@@ -10,7 +10,14 @@ namespace Number_Generator
     {
         public static List<Number> Real_Numbers = new List<Number>(53144100);
 
-
+        public static bool IsWeCreateAlreadythisNumber(Number n)
+        {
+            foreach(Number num in Real_Numbers)
+            {
+                if (num.Equals(n)) return true;
+            }
+            return false;
+        }
         public static void Random()
         {
             Random rnd = new Random();
@@ -24,7 +31,12 @@ namespace Number_Generator
             {
                 letters[i] = (char)((int)'A' + rnd.Next(0, 26));
             }
-            Real_Numbers.Add(new Number(numers, letters));
+            Number n = new Number(numers, letters);
+            while (Real_Numbers.Contains(n))
+            {
+                n++;
+            }
+            Real_Numbers.Add(n);
         }
         
 
