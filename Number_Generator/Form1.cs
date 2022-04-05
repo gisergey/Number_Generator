@@ -10,20 +10,26 @@ using System.Windows.Forms;
 
 namespace Number_Generator
 {
-    public partial class MainForm : Form
+    public partial class MainNumberForm : Form
     {
-        public MainForm()
+       
+        public MainNumberForm()
         {
             InitializeComponent();
         }
-
+       
  
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            for(int i = 0; i < 8; i++)
+            {
+
+            }
             Numbers.Random();
+    
             S();
-        }  
+        }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
@@ -53,12 +59,12 @@ namespace Number_Generator
         }
         private void S()
         {
-            label1.Text = Numbers.Real_Numbers.Last().ToString()[0].ToString();
-            label2.Text = Numbers.Real_Numbers.Last().ToString()[1].ToString();
-            label3.Text = Numbers.Real_Numbers.Last().ToString()[2].ToString();
-            label4.Text = Numbers.Real_Numbers.Last().ToString()[3].ToString();
-            label5.Text = Numbers.Real_Numbers.Last().ToString()[4].ToString();
-            label6.Text = Numbers.Real_Numbers.Last().ToString()[5].ToString();
+            label1.Text = Numbers.Real_Numbers.Last().ToString().Insert(2, "*").Insert(5, "*");
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

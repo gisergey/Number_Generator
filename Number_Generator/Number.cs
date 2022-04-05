@@ -15,6 +15,10 @@ namespace Number_Generator
                 letters[i] = 'A';
             }
         }
+        public Number(string str)
+        {
+          
+        }
         public Number(int[] num, char[] letters)
         {
            for(int i = 0; i < 4;i++)
