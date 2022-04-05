@@ -29,15 +29,15 @@ namespace Number_Generator
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainNumberForm));
             this.NextButton = new System.Windows.Forms.Button();
             this.PreviousButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.LeftLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.MiddleLabel = new System.Windows.Forms.Label();
+            this.RigthLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,25 +80,21 @@ namespace Number_Generator
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.MainForm_Load);
             // 
-            // label1
+            // LeftLabel
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(1)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(34, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(711, 170);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.LeftLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(1)))));
+            this.LeftLabel.Font = new System.Drawing.Font("Segoe UI", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LeftLabel.Location = new System.Drawing.Point(38, 56);
+            this.LeftLabel.Name = "LeftLabel";
+            this.LeftLabel.Size = new System.Drawing.Size(222, 165);
+            this.LeftLabel.TabIndex = 3;
+            this.LeftLabel.Text = "1";
+            this.LeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LeftLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BackgroundImage = global::Number_Generator.Properties.Resources.authtonumber;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -115,7 +111,7 @@ namespace Number_Generator
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
             this.tableLayoutPanel1.Controls.Add(this.NextButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.PreviousButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
@@ -128,6 +124,28 @@ namespace Number_Generator
             this.tableLayoutPanel1.Size = new System.Drawing.Size(779, 76);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
+            // MiddleLabel
+            // 
+            this.MiddleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(1)))));
+            this.MiddleLabel.Font = new System.Drawing.Font("Segoe UI", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MiddleLabel.Location = new System.Drawing.Point(280, 56);
+            this.MiddleLabel.Name = "MiddleLabel";
+            this.MiddleLabel.Size = new System.Drawing.Size(219, 165);
+            this.MiddleLabel.TabIndex = 6;
+            this.MiddleLabel.Text = "1";
+            this.MiddleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RigthLabel
+            // 
+            this.RigthLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(1)))));
+            this.RigthLabel.Font = new System.Drawing.Font("Segoe UI", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RigthLabel.Location = new System.Drawing.Point(520, 56);
+            this.RigthLabel.Name = "RigthLabel";
+            this.RigthLabel.Size = new System.Drawing.Size(216, 165);
+            this.RigthLabel.TabIndex = 7;
+            this.RigthLabel.Text = "1";
+            this.RigthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainNumberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,7 +154,9 @@ namespace Number_Generator
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(779, 447);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.RigthLabel);
+            this.Controls.Add(this.MiddleLabel);
+            this.Controls.Add(this.LeftLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -157,10 +177,11 @@ namespace Number_Generator
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button PreviousButton;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label LeftLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label MiddleLabel;
+        private System.Windows.Forms.Label RigthLabel;
     }
 }
 
