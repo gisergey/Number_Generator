@@ -29,10 +29,11 @@ namespace Number_Generator
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainNumberForm));
             this.NextButton = new System.Windows.Forms.Button();
             this.PreviousButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.RandomButton = new System.Windows.Forms.Button();
             this.LeftLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.MiddleLabel = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@ namespace Number_Generator
             this.CloseButton = new System.Windows.Forms.Button();
             this.ReverseButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.randomgenerationtimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,18 +74,18 @@ namespace Number_Generator
             this.PreviousButton.UseVisualStyleBackColor = false;
             this.PreviousButton.Click += new System.EventHandler(this.PreviousButton_Click);
             // 
-            // button2
+            // RandomButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(1)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(307, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 70);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Слуйчайный";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.RandomButtonClick);
+            this.RandomButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(1)))));
+            this.RandomButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RandomButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RandomButton.Location = new System.Drawing.Point(307, 3);
+            this.RandomButton.Name = "RandomButton";
+            this.RandomButton.Size = new System.Drawing.Size(157, 70);
+            this.RandomButton.TabIndex = 2;
+            this.RandomButton.Text = "Слуйчайный";
+            this.RandomButton.UseVisualStyleBackColor = false;
+            this.RandomButton.Click += new System.EventHandler(this.RandomButtonClick);
             // 
             // LeftLabel
             // 
@@ -106,7 +108,7 @@ namespace Number_Generator
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
             this.tableLayoutPanel1.Controls.Add(this.NextButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.RandomButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.PreviousButton, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
@@ -178,6 +180,11 @@ namespace Number_Generator
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // randomgenerationtimer
+            // 
+            this.randomgenerationtimer.Interval = 10;
+            this.randomgenerationtimer.Tick += new System.EventHandler(this.randomgenerationtimer_Tick);
+            // 
             // MainNumberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,7 +218,7 @@ namespace Number_Generator
 
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button PreviousButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button RandomButton;
         private System.Windows.Forms.Label LeftLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label MiddleLabel;
@@ -219,6 +226,7 @@ namespace Number_Generator
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button ReverseButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer randomgenerationtimer;
     }
 }
 
