@@ -14,6 +14,7 @@ namespace Number_Generator
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainNumberForm());
@@ -24,6 +25,7 @@ namespace Number_Generator
                     text.WriteLine(n.ToString());
                 }
             }
+
         }
     }
 }

@@ -69,7 +69,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="bin\Debug\SAAS.ttf" />
+    <Resource Include="bin\Debug\SAAS.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\RevS.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\SAASnewreversefont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bin\Debug\SAASLastCreated.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -85,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\authtonumber.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carNumber.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReversCarNumber1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
