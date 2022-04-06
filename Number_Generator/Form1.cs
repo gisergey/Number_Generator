@@ -35,12 +35,13 @@ namespace Number_Generator
 
             pictureBox1.BackgroundImage = Properties.Resources.carNumber;
 
+            string path = Environment.CurrentDirectory.Replace(@"bin\Debug", @"Fonts\");
 
-            Normalfont.AddFontFile("SAAS.ttf");
+            Normalfont.AddFontFile(path+"SAAS.ttf");
 
             normalFonts = new Font(Normalfont.Families[0], high);
 
-            Normalfont.AddFontFile("SAASLastCreated.ttf");
+            Normalfont.AddFontFile(path+"SAASLastCreated.ttf") ;
             reversedFonts = new Font(Normalfont.Families[0], high);
 
             LeftLabel.Font = normalFonts;
@@ -99,8 +100,10 @@ namespace Number_Generator
 
         private void ReverseButton_Click(object sender, EventArgs e)
         {
+            Button button = sender as Button;
             if (isreversed)
             {
+                button.Text = "Адаптировать";
                 LeftLabel.Font = normalFonts;
                 MiddleLabel.Font = normalFonts;
                 RigthLabel.Font = normalFonts;
@@ -108,7 +111,7 @@ namespace Number_Generator
             }
             else
             {
-
+                button.Text = "Обратно";
                 LeftLabel.Font = reversedFonts;
                 MiddleLabel.Font = reversedFonts;
                 RigthLabel.Font = reversedFonts;
