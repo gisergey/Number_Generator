@@ -182,7 +182,7 @@ namespace Number_Generator
             // 
             // randomgenerationtimer
             // 
-            this.randomgenerationtimer.Interval = 10;
+            this.randomgenerationtimer.Interval = 5;
             this.randomgenerationtimer.Tick += new System.EventHandler(this.randomgenerationtimer_Tick);
             // 
             // MainNumberForm

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace Number_Generator
 {
     static class Numbers
     {
         public static List<Number> Real_Numbers = new List<Number>(53144100);
-
+        static private int maxnumbers = (int)(100 * Math.Pow(26, 4));
         public static bool IsWeCreateAlreadythisNumber(Number n)
         {
             foreach(Number num in Real_Numbers)
@@ -32,11 +32,18 @@ namespace Number_Generator
                 letters[i] = (char)((int)'A' + rnd.Next(0, 26));
             }
             Number n = new Number(numers, letters);
-            while (Real_Numbers.Contains(n))
+            int j = 0;
+            while (Real_Numbers.Contains(n)||j>maxnumbers)
             {
+                j++;
                 n++;
             }
-            Real_Numbers.Add(n);
+            if (j > maxnumbers)
+            {
+                MessageBox.Show("Больше нет свободных номеров");
+            }
+            else { Real_Numbers.Add(n); }
+           
         }
         
 

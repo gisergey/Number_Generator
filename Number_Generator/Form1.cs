@@ -14,20 +14,18 @@ namespace Number_Generator
     public partial class MainNumberForm : Form
     {
         static PrivateFontCollection Normalfont = new PrivateFontCollection();
-
+        int maxcountofnumbers =(int)(100 * Math.Pow(26, 4));
+        Font normalFonts;
+        Font reversedFonts;
+        bool isreversed = false;
+        int high = 120;
         public MainNumberForm()
         {
             InitializeComponent();
         }
-        Font normalFonts;
-        Font reversedFonts;
-
-        bool isreversed = false;
-        int high = 120;
-
         private void RandomButtonClick(object sender, EventArgs e)
         {
-            Numbers.Random();
+            
             bool a = false;
             ReverseButton.Enabled = a;
             NextButton.Enabled = a;
@@ -36,7 +34,7 @@ namespace Number_Generator
             PreviousButton.Enabled = a;
             randomgenerationtimer.Interval = 5;
             randomgenerationtimer.Start();
-
+            
             S();
         }
   
@@ -68,25 +66,39 @@ namespace Number_Generator
             Number n = new Number(Numbers.Real_Numbers.Last().Num, Numbers.Real_Numbers.Last().letters);
 
             n++;
-            while (Numbers.IsWeCreateAlreadythisNumber(n))
+            int i = 0;
+            while (Numbers.IsWeCreateAlreadythisNumber(n) || i > maxcountofnumbers)
             {
+                i++;
                 n++;
             }
-            Numbers.Real_Numbers.Add(new Number(n.Num, n.letters));
+            if (i > maxcountofnumbers)
+            {
+                MessageBox.Show("У нас кончились всевозможные номера для этого региона австралии");
+                Close();
+            }
+            else { Numbers.Real_Numbers.Add(new Number(n.Num, n.letters)); }
+            
             S();
         }
-
+        
         private void PreviousButton_Click(object sender, EventArgs e)
         {
             Number n = new Number(Numbers.Real_Numbers.Last().Num, Numbers.Real_Numbers.Last().letters);
             n--;
-            while (Numbers.IsWeCreateAlreadythisNumber(n))
+            int i = 0;
+            while (Numbers.IsWeCreateAlreadythisNumber(n)||i> maxcountofnumbers)
             {
-
+                i++;
                 n--;
-
             }
-            Numbers.Real_Numbers.Add(new Number(n.Num, n.letters));
+            if(i> maxcountofnumbers)
+            {
+                MessageBox.Show("У нас кончились всевозможные номера для этого региона австралии");
+                Close();
+            }
+            else { Numbers.Real_Numbers.Add(new Number(n.Num, n.letters)); }
+           
             S();
         }
         private void S()
@@ -133,7 +145,7 @@ namespace Number_Generator
             S();
 
         }
-        int a = 1000;
+        
         private void randomgenerationtimer_Tick(object sender, EventArgs e)
         {
             randomgenerationtimer.Interval=randomgenerationtimer.Interval+randomgenerationtimer.Interval/3;
@@ -162,6 +174,8 @@ namespace Number_Generator
                 CloseButton.Enabled = a;
                 PreviousButton.Enabled = a;
                 randomgenerationtimer.Stop();
+                Numbers.Random();
+                S();
             }
 
 
