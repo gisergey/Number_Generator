@@ -8,6 +8,8 @@ namespace Number_Generator
 {
     class Number
     {
+        public char[] letters = new char[4];
+        public int[] Num=new int[2];
         public Number()
         {
             for(int i = 0; i < 4; i++)
@@ -15,9 +17,19 @@ namespace Number_Generator
                 letters[i] = 'A';
             }
         }
-        public Number(string str)
+        public Number(string number)
         {
-          
+            int h = 0;
+            for(int i = 0; i < 7; i += 4)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    letters[h] = number[i + j];
+                    h++;
+                }
+            }
+            Num[1] = int.Parse(number[2].ToString());
+            Num[0] = int.Parse(number[3].ToString());
         }
         public Number(int[] num, char[] letters)
         {
@@ -32,8 +44,7 @@ namespace Number_Generator
         
         
         }
-        public char[] letters = new char[4];
-        public int[] Num=new int[2];
+        
         public override string ToString()
         {
             return letters[0].ToString() + letters[1].ToString()+Num[1].ToString()+Num[0].ToString()+letters[2].ToString()+letters[3].ToString();
@@ -126,6 +137,22 @@ namespace Number_Generator
                 return true;
             }
             return false;
+        }
+        static public bool IsNumber(string number)
+        {
+            if (number.Length != 6) { return false; }
+            for(int i = 0; i < 7; i+=4)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    if (number[j + i] < 'A' || number[j + i] > 'Z') { return false; }
+                }
+            }
+            for(int i = 2; i < 4; i++)
+            {
+                if(!int.TryParse(number[i].ToString(),out int j)) { return false; }
+            }
+            return true;
         }
         public override int GetHashCode()
         {

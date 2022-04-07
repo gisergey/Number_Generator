@@ -8,6 +8,7 @@ namespace Number_Generator
 {
     static class Numbers
     {
+               
         public static List<Number> Real_Numbers = new List<Number>(53144100);
         static private int maxnumbers = (int)(100 * Math.Pow(26, 4));
         public static bool IsWeCreateAlreadythisNumber(Number n)
@@ -43,7 +44,6 @@ namespace Number_Generator
                 MessageBox.Show("Больше нет свободных номеров");
             }
             else { Real_Numbers.Add(n); }
-           
         }
         
 

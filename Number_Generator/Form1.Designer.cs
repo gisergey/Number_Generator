@@ -97,7 +97,7 @@ namespace Number_Generator
             this.LeftLabel.TabIndex = 3;
             this.LeftLabel.Text = "1";
             this.LeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LeftLabel.Click += new System.EventHandler(this.label1_Click);
+          
             // 
             // tableLayoutPanel1
             // 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data;
+using System.Data.SQLite;
 namespace Number_Generator
 {
     static class Program
@@ -14,18 +16,44 @@ namespace Number_Generator
         [STAThread]
         static void Main()
         {
+           
+            DataTable dt = new DataTable();
+            string sqlcommand = "SELECT* FROM REALNUMBERS";
+            string pathsqlDB = "data source=";
+            pathsqlDB += Environment.CurrentDirectory.Replace(@"bin\Debug", "") + "NumberDB.db";
+            SQLiteConnection connect = new SQLiteConnection(pathsqlDB);
+            connect.Open();
+            SQLiteCommand command = new SQLiteCommand(sqlcommand, connect);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            adapter.Fill(dt);
+            foreach (DataRow DR in dt.Rows)
+            {
+                try
+                {
+                    string cell = (string)DR.ItemArray[0];
+                    if (Number.IsNumber(cell))
+                    {
+                        Numbers.Real_Numbers.Add(new Number(cell));
+                    }
+                }
+                catch { MessageBox.Show("Есть Ошибка"); }
+            }
+            int previouslength = Numbers.Real_Numbers.Count();
 
+ 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainNumberForm());
-            using(StreamWriter text= new StreamWriter("debug.txt",true))
+            sqlcommand = "INSERT INTO REALNUMBERS(Number)VALUES('')";
+            for (int i = previouslength; i < Numbers.Real_Numbers.Count; i++)
             {
-                foreach(Number n in Numbers.Real_Numbers)
-                {
-                    text.WriteLine(n.ToString());
-                }
+                command = new SQLiteCommand(sqlcommand.Insert(39, Numbers.Real_Numbers[i].ToString()), connect);
+                command.ExecuteNonQuery();
+
             }
 
+
+            connect.Close();
         }
     }
 }

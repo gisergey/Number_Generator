@@ -25,7 +25,6 @@ namespace Number_Generator
         }
         private void RandomButtonClick(object sender, EventArgs e)
         {
-            
             bool a = false;
             ReverseButton.Enabled = a;
             NextButton.Enabled = a;
@@ -34,37 +33,26 @@ namespace Number_Generator
             PreviousButton.Enabled = a;
             randomgenerationtimer.Interval = 5;
             randomgenerationtimer.Start();
-            
             S();
         }
-  
         private void MainForm_Load(object sender, EventArgs e)
         {
-
             pictureBox1.BackgroundImage = Properties.Resources.carNumber;
-
             string path = Environment.CurrentDirectory.Replace(@"bin\Debug", @"Fonts\");
-
             Normalfont.AddFontFile(path + "SAAS.ttf");
-
             normalFonts = new Font(Normalfont.Families[0], high);
-
             Normalfont.AddFontFile(path + "SAASLastCreated.ttf");
             reversedFonts = new Font(Normalfont.Families[0], high);
-
             LeftLabel.Font = normalFonts;
             MiddleLabel.Font = normalFonts;
             RigthLabel.Font = normalFonts;
-
             Numbers.Random();
-
             S();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
             Number n = new Number(Numbers.Real_Numbers.Last().Num, Numbers.Real_Numbers.Last().letters);
-
             n++;
             int i = 0;
             while (Numbers.IsWeCreateAlreadythisNumber(n) || i > maxcountofnumbers)
@@ -78,10 +66,8 @@ namespace Number_Generator
                 Close();
             }
             else { Numbers.Real_Numbers.Add(new Number(n.Num, n.letters)); }
-            
             S();
         }
-        
         private void PreviousButton_Click(object sender, EventArgs e)
         {
             Number n = new Number(Numbers.Real_Numbers.Last().Num, Numbers.Real_Numbers.Last().letters);
@@ -97,8 +83,7 @@ namespace Number_Generator
                 MessageBox.Show("У нас кончились всевозможные номера для этого региона австралии");
                 Close();
             }
-            else { Numbers.Real_Numbers.Add(new Number(n.Num, n.letters)); }
-           
+            else { Numbers.Real_Numbers.Add(new Number(n.Num, n.letters)); }  
             S();
         }
         private void S()
@@ -107,19 +92,11 @@ namespace Number_Generator
             LeftLabel.Text = numer[0].ToString() + numer[1].ToString();
             MiddleLabel.Text = numer[2].ToString() + numer[3].ToString();
             RigthLabel.Text = numer[4].ToString() + numer[5].ToString();
-
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void ReverseButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -141,11 +118,8 @@ namespace Number_Generator
 
             }
             isreversed = !isreversed;
-
             S();
-
         }
-        
         private void randomgenerationtimer_Tick(object sender, EventArgs e)
         {
             randomgenerationtimer.Interval=randomgenerationtimer.Interval+randomgenerationtimer.Interval/3;
@@ -177,8 +151,6 @@ namespace Number_Generator
                 Numbers.Random();
                 S();
             }
-
-
         }
     }
 }
